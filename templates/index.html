@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Loan Approval Prediction</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Loan Approval Prediction System</h1>
+
+        <form action="/predict" method="POST">
+
+            <label>Gender:</label>
+            <select name="Gender">
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+
+            <label>Married:</label>
+            <select name="Married">
+                <option>Yes</option>
+                <option>No</option>
+            </select>
+
+            <label>Dependents:</label>
+            <input type="number" name="Dependents" required>
+
+            <label>Education:</label>
+            <select name="Education">
+                <option>Graduate</option>
+                <option>Not Graduate</option>
+            </select>
+
+            <label>Self Employed:</label>
+            <select name="Self_Employed">
+                <option>Yes</option>
+                <option>No</option>
+            </select>
+
+            <label>Applicant Income:</label>
+            <input type="number" name="ApplicantIncome" required>
+
+            <label>Coapplicant Income:</label>
+            <input type="number" name="CoapplicantIncome" required>
+
+            <label>Loan Amount in thousand:</label>
+            <input type="number" name="LoanAmount" required>
+
+            <label>Loan Amount Term:</label>
+            <input type="number" name="Loan_Amount_Term" required>
+
+            <label>Credit History:</label>
+           <input type="number" min="0" max="10" step="1" name="Credit_History" placeholder="0 to 10" required>
+
+            <label>Property Area:</label>
+            <select name="Property_Area">
+                <option>Urban</option>
+                <option>Semiurban</option>
+                <option>Rural</option>
+            </select>
+
+            <button type="submit">Predict</button>
+
+        </form>
+
+        <div class="result">
+
+            <h2>{{ prediction_text }}</h2>
+
+            {% if probability %}
+                <h3>Approval Probability: {{ probability }}%</h3>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

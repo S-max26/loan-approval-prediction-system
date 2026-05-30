@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body style="background-color:#dff6dd;">
+
+<div class="container">
+    <h1 style="color:green;">Loan Prediction Result</h1>
+    <hr>
+    <h3>{{ prediction_text }}</h3>
+    <h3>Approval Chance: {{ probability }}%</h3>
+
+    {% if prediction_text == "Loan Approved" %}
+    <h2>Recommended Bank: {{ bank_name }}</h2>
+     {% endif %}
+
+    <h3>User Entered Details</h3>
+
+    <p><b>Gender:</b> {{ user_data.Gender }}</p>
+    <p><b>Married:</b> {{ user_data.Married }}</p>
+    <p><b>Dependents:</b> {{ user_data.Dependents }}</p>
+    <p><b>Education:</b> {{ user_data.Education }}</p>
+    <p><b>Self Employed:</b> {{ user_data.Self_Employed }}</p>
+    <p><b>Applicant Income:</b> {{ user_data.ApplicantIncome }}</p>
+    <p><b>Coapplicant Income:</b> {{ user_data.CoapplicantIncome }}</p>
+    <p><b>Loan Amount :</b> {{ user_data.LoanAmount }}</p>
+    <p><b>Loan Term:</b> {{ user_data.Loan_Amount_Term }}</p>
+    <p><b>Credit History:</b> {{ user_data.Credit_History }}</p>
+    <p><b>Property Area:</b> {{ user_data.Property_Area }}</p>
+
+    <br><br>
+    <a href="/">
+        <button>Predict Another Loan</button>
+    </a>
+</div>
+
+</body>
+</html>
