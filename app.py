@@ -76,7 +76,7 @@ def predict():
         result = "Loan Approved"
 
     # Bank suggestion logic
-        if credit_history >= 5 and applicant_income > 5000:
+        if applicant_income > 5000:
             bank_name = "HDFC Bank"
         elif property_area == 2:   # Urban
             bank_name = "ICICI Bank"
